@@ -44,17 +44,3 @@ exports.getExpenses = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
-// Delete expense
-exports.deleteExpense = async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    await Expense.findByIdAndDelete(id);
-
-    res.status(200).json({ message: "Expense deleted" });
-
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
